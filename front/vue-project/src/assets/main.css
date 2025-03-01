@@ -2,11 +2,84 @@
     margin:0;
     padding:0;
     box-sizing: border-box;
+    font-family: Mont;
+}
+@font-face {
+    font-family: Mont;
+    src: url("../assets/Montserrat-Italic-VariableFont_wght.ttf");
 }
 body{
     background-color: rgb(51, 49, 49);
 }
-.const{
+.cont{
     display:flex;
     flex-direction: column;
+}
+.login-input{
+    width:100%;
+    padding:3%;
+    border-radius:5px;
+    border:1px solid rgb(184, 3, 184);
+    color:aliceblue;
+    background: none;
+    margin-top:1%;
+}
+.login-button{
+    width:100%;
+    padding:3%;
+    border:1px solid rgb(184, 3, 184);
+    background: none;
+    margin-top:1%;
+    border-radius:10px;
+    color:aliceblue;
+}
+.cont{
+    
+    margin-top:10%;
+    gap:5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+}
+.cont-login{
+    width:30%;
+    height:45vh;
+    padding:3%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: rgb(65, 65, 65);
+    margin:0 auto;
+    border-radius: 5px;
+    margin-top:15%;
+    gap:5%;
+}
+.cont-reg{
+    width:30%;
+    height:60vh;
+    padding:3%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: rgb(65, 65, 65);
+    margin:0 auto;
+    border-radius: 5px;
+    margin-top:10%;
+    gap:5%;
+}
+#login-txt{
+    font-size: 17px;
+    color:white;
+    font-weight: 400;
+}
+#login-txt-2{
+    font-size: 14px;
+    color:white;
+    font-weight: 400;
+}
+button,input :active, :hover, :focus {
+    outline: 0;
+    outline-offset: 0;
 }

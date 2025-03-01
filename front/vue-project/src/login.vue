@@ -1,9 +1,10 @@
 <template>
-    <div class="cont">
-        <h1>login</h1>
-        <input type="text" placeholder="nickname"><br><br>
-        <input type="passowrd" placeholder="password"><br><br>
-        <button @click="GoTo()">register</button>
+    <div class="cont-login">
+        <h1 id="login-txt">Логин</h1>
+        <input type="text" placeholder="nickname" class="login-input">
+        <input type="passowrd" placeholder="password" class="login-input">
+        <button class="login-button">Войти</button>
+        <h1 @click="GoTo()" id="login-txt-2">Нет аккаунта зарегестрируйтесь</h1>
     </div>
 </template>
 
@@ -14,6 +15,6 @@ let router = useRouter()
 
 function GoTo(){
     
- router.push('/clubs');
+ router.push('/register');
 }
 </script>
