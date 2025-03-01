@@ -1,6 +1,6 @@
 <template>
     <div class="cont">
-        <input type="text" v-model="title">
+        <input type="text" v-model="title" >
         <input type="text" v-model="description">
         <button @click="Post()">click</button>
         <p>clubs</p>
@@ -18,11 +18,28 @@
     
 </template>
 <style scoped>
+input{
+    width:20%;
+    padding:1%;
+    border-radius:10px;
+    border-color:purple;
+    background: none;
+    margin-top:1%;
+}
+button{
+    width:15%;
+    padding:1%;
+    border-color:purple;
+    background: none;
+    margin-top:1%;
+    border-radius:10px;
+
+}
 .logo-id{
     width:100px;
     height:100px;
     background-color: yellow;
-    border-radius: 50px;
+    border-radius: 10px;
     text-align: center;
 }
 #id{
@@ -31,10 +48,17 @@
     font-weight: 600;
 }
 .cont{
-    width:100%;
+    
+    margin-top:10%;
+    gap:5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
 }
 .club-cont{
-    width:40%;
+    width:100%;
     border:1px solid grey;
     padding:2%;
     display: flex;
@@ -51,12 +75,21 @@ let clubs = ref([])
 let title = ref('')
 let description = ref('')
 async function Delete(id){
-    axios.delete(`https://localhost:7210/clubs/${id}`)
+    axios.delete(`https://localhost:7210/clubs/${id}`).then(function(res){
+        if(res){
+            fetchData();
+        }
+    })
     console.log(id.value);
     console.log(id);
 }
 function Post(){
-    axios.post('https://localhost:7210/clubs',{title:title.value,description:description.value})
+    axios.post('https://localhost:7210/clubs/create',{title:title.value,description:description.value})
+    .then(function(res){
+        if(res){
+            fetchData();
+        }
+    })
 }
 
 async function fetchData(){
@@ -67,11 +100,9 @@ async function fetchData(){
 })
 }
  
-let intervalId = ref();
 
-onMounted(() => {
-      intervalId.value = setInterval(fetchData, 1500); // Запрашиваем данные каждые 5 секунд
-});
+
+
 
 
 
