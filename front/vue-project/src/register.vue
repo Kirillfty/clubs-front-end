@@ -22,7 +22,7 @@ let Acc = ref({
 })
 let router = useRouter();
 function Registration(){
-axios.post('https://localhost:7210/api/users',{firstName:Acc.value.firstName,
+axios.post('https://localhost:7210/api/auth/register',{firstName:Acc.value.firstName,
 lastName:Acc.value.lastName,
 nickName:Acc.value.nickName,
 password:Acc.value.password,
@@ -30,6 +30,8 @@ password:Acc.value.password,
 }).then(function(responce){
     if(responce){
         router.push('/clubs');
+        localStorage.setItem('taccessToken',responce.data.accessToken);
+        localStorage.setItem('refreshToken',responce.data.refreshToken);
     }
     else{
         console.log('non correct values');
