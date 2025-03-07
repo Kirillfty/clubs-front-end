@@ -5,7 +5,7 @@
 	<p class="title">Login</p>
 	<form class="form">
 		<div class="input-group">
-			<label for="username">Username</label>
+			<label for="username">NickName</label>
 			<input type="text" name="username" autocomplete="off" id="username" placeholder="">
 		</div>
 		<div class="input-group">
@@ -48,11 +48,27 @@
 
 <script setup>
 import { useRouter } from 'vue-router'
+import {ref}  from 'vue'
+import axios from 'axios'
 
+let Account = ref({
+	nickName:'',
+	password:''
+})
+function Logi(){
+	axios.post('https://localhost:7210/api/auth/register',{nickName:Account.value.nickName,password:Acc.value.password})
+	.then(function(res){
+		let accessToken = localStorage.getItem('accessToken');
+		let refreshToken = localStorage.getItem('refreshToken');
+		
+	})
+}
 let router = useRouter()
-
-function GoTo(){
-    
+function GoTo(){  
  router.push('/register');
 }
+ 
+
+
+
 </script>
