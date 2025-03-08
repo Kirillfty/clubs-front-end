@@ -35,6 +35,7 @@ password:Acc.value.password,
 }).then(function(responce){
     if(responce){
         router.push('/clubs');
+        localStorage.clear();
         localStorage.setItem('accessToken',responce.data.accessToken);
         localStorage.setItem('refreshToken',responce.data.refreshToken);
     }

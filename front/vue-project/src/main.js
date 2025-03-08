@@ -6,11 +6,13 @@ import { createWebHistory, createRouter } from 'vue-router'
 import login from './login.vue'
 import register from './register.vue'
 import clubs from './clubs.vue'
+import userpage from './usersPage.vue'
 
 const routes = [
   { path: '/', component: login },
   { path: '/clubs', component: clubs },
-  { path: '/register', component: register }
+  { path: '/register', component: register },
+  { path: '/user', component: userpage }
 ]
 
 const router = createRouter({
