@@ -18,6 +18,8 @@
 <script setup> 
 import axios from 'axios'
 import {ref,onMounted} from 'vue'
+import { useRouter} from 'vue-router'
+let router = useRouter();
 let clubs = ref('');
 async function fetchData()
 {
@@ -46,11 +48,11 @@ async function Page(){
         console.log(acsecc + '/' + refresh);
         axios.get('https://localhost:7210/api/auth/check',{ headers: { 'Authorization': "Bearer "+acsecc }}).then(function(res){
             result = res.data;
-            console.log(result);
+            console.log(result.id);
         });
     }
     else{
-        routerKey.push('/');
+        router.push('/');
     }
 }
 onMounted(async()=>{

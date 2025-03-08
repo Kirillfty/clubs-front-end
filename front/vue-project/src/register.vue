@@ -4,7 +4,7 @@
 <div class="form-container">
 	<input type="text" v-model="Acc.firstName" placeholder="fistaname">
 	<input type="text" v-model="Acc.lastName" placeholder="lastname">
-	<input type="text" v-model="Acc.nickName"placeholder="nickname">
+	<input type="text" v-model="Acc.nickName" placeholder="nickname">
 	<input type="text" v-model="Acc.password" placeholder="password">
 	<button @click="Registration()" class="sign">click</button>
 </div> 
