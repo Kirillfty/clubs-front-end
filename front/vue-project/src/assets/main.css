@@ -68,6 +68,10 @@ body{
     background-color: rgba(17, 24, 39, 1);
     padding: 2rem;
     color: rgba(243, 244, 246, 1);
+    display:flex;
+    justify-content: space-around;
+    flex-direction: column;
+    gap:5%;
   }
   
   .title {
@@ -103,9 +107,7 @@ body{
     color: rgba(243, 244, 246, 1);
   }
   
-  .input-group input:focus {
-    border-color: rgba(167, 139, 250);
-  }
+  
   
   .forgot {
     display: flex;

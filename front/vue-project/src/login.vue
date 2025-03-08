@@ -15,7 +15,7 @@
 				<a rel="noopener noreferrer" href="#">Forgot Password ?</a>
 			</div>
 		</div>
-		<button class="sign">Sign in</button>
+		<button class="sign" @click="Login()">Sign in</button>
 	</form>
 	<div class="social-message">
 		<div class="line"></div>
@@ -42,6 +42,9 @@
 	<p class="signup">Don't have an account?
 		<a rel="noopener noreferrer" @click="GoTo()" class="">Sign up</a>
 	</p>
+	<input type="text" v-model="Account.nickName">
+	<input type="text" v-model="Account.password">
+	<button @click="Login()">click</button>
 </div>
     </div>
 </template>
@@ -52,15 +55,14 @@ import {ref}  from 'vue'
 import axios from 'axios'
 
 let Account = ref({
-	nickName:'',
-	password:''
+	nickName:null,
+	password:null
 })
-function Logi(){
-	axios.post('https://localhost:7210/api/auth/register',{nickName:Account.value.nickName,password:Acc.value.password})
+function Login(){
+	axios.post('https://localhost:7210/api/auth/login',{nickName:Account.value.nickName,password:Account.value.password})
 	.then(function(res){
-		let accessToken = localStorage.getItem('accessToken');
-		let refreshToken = localStorage.getItem('refreshToken');
-		
+		console.log('ok');
+		router.push('/clubs')
 	})
 }
 let router = useRouter()
