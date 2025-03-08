@@ -18,23 +18,14 @@
 </template>
 <script setup> 
 import axios from 'axios'
-let title = ref('')
-let description = ref('')
-async function Delete(id){
-    axios.delete(`https://localhost:7210/clubs/${id}`).then(function(res){
-        if(res){
-            fetchData();
-        }
-    })
-    console.log(id.value);
-    console.log(id);
-}
-function Post(){
-    axios.post('https://localhost:7210/clubs/create',{title:title.value,description:description.value})
-    .then(function(res){
-        if(res){
-            fetchData();
-        }
-    })
+function Page(){
+    let acsecc = localStorage.getItem('accessToken');
+    let refresh = localStorage.getItem('refreshToken');
+    if(acsecc != null && refresh != null){
+        
+    }
+    else{
+        routerKey.push('/');
+    }
 }
 </script>
