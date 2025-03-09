@@ -61,6 +61,9 @@ let Account = ref({
 function Login(){
 	axios.post('https://localhost:7210/api/auth/login',{nickName:Account.value.nickName,password:Account.value.password})
 	.then(function(res){
+		localStorage.clear();
+        localStorage.setItem('accessToken',res.data.accessToken);
+        localStorage.setItem('refreshToken',res.data.refreshToken);
 		console.log('ok');
 		router.push('/clubs')
 	})

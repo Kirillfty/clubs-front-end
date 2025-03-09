@@ -34,6 +34,15 @@ async function fetchData()
 let title = ref('');
 let description = ref('')
 let result = ref('');
+
+
+async function getUser(){
+    console.log("result "+result)
+    await axios.get('https://localhost:7210/api/users/'+result.value).then(function(responce){
+        console.log(responce.data);
+    })
+
+}
 function Post(){
     axios.post('https://localhost:7210/clubs/create',{
         title:title.value,
@@ -46,9 +55,9 @@ async function Page(){
     let refresh = localStorage.getItem('refreshToken');
     if(acsecc != null && refresh != null){
         console.log(acsecc + '/' + refresh);
-        axios.get('https://localhost:7210/api/auth/check',{ headers: { 'Authorization': "Bearer "+acsecc }}).then(function(res){
-            result = res.data;
-            console.log(result.id);
+        await axios.get('https://localhost:7210/api/auth/check',{ headers: { 'Authorization': "Bearer "+acsecc }}).then(function(res){
+            result.value = res.data;
+            console.log(result);
         });
     }
     else{
@@ -58,5 +67,6 @@ async function Page(){
 onMounted(async()=>{
     await fetchData();
     await Page();
+    await getUser();
 })
 </script>
