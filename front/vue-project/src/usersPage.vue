@@ -10,7 +10,7 @@
 </div>
 <div class="cont">
     <p>Создать клуб</p>
-    <div class="cont-reg">
+    <div class="cont-login">
         <input type="text" v-model="title" class="input">
         <input type="text" v-model="description" class="input">
         <button @click="Post()" class="sign">click</button>
@@ -82,11 +82,11 @@ async function Delete(id){
 }
 async function getUser(){
     console.log("result "+result)
-    await axios.get('https://localhost:7210/api/users/'+result.value).then(function(responce){
+    await axios.get('https://localhost:7210/api/users/'+ result.value).then(function(responce){
         console.log(responce.data);
-         userData.value = responce.data;
-         console.log('user '+userData);
-         return userData;
+        userData.value = responce.data;
+        console.log('user '+userData);
+        return userData;
     })
 
 }

@@ -13,7 +13,7 @@ p{
     src: url("../assets/Montserrat-Italic-VariableFont_wght.ttf");
 }
 body{
-    background-color: rgb(51, 49, 49);
+    background-color: rgb(10, 10, 10);
 }
 .cont{
     display:flex;
@@ -51,12 +51,12 @@ body{
     
 }
 .cont-login{
-    width:100%;
+    width:60%;
+    height:25vh;
     margin-top: 6%;
     display: flex;
-    justify-content: center;
-    align-content: center;
-   
+    justify-content: space-between;
+    flex-direction: column;
 }
 .cont-reg{
     width:100%;
