@@ -1,55 +1,77 @@
 <template>
 <header>
 <div class="user-header">
-    <div class="logo"></div>
-    <div class="user-text">
-        <p>{{userData.firstName}}</p>
-        <p>{{userData.lastName}}</p>
-        <p>{{userData.nickName}}</p>
+    <div class="logo">
+        <img src="./assets/user.png" alt="" class="logo">
     </div>
-</div>
-<div class="cont">
-    <p>Создать клуб</p>
-    <div class="cont-login">
-        <input type="text" v-model="title" class="input">
-        <input type="text" v-model="description" class="input">
-        <button @click="Post()" class="sign">click</button>
-    </div>
-        <p>clubs</p>
-        <div v-for="club in clubs" :key="club" class="clubs">
-        <div class="club">
-          <img src="./assets/Без имени.png" class="logo-id">
-          <div>
-            <p>{{club.title}}</p>
-            <p>{{club.description}}</p>
-            <button @click="Delete(club.id)" class="sign"> Delete</button>
-          </div>
+        <div class="user-text">
+            <div id="header-info">
+                <p id="info">{{userData.firstName}}</p>
+                <p id="info">{{userData.lastName}}</p>
+            </div>
+            <p id="nick">{{userData.nickName}}</p>
         </div>
+</div>
+<p align="center">Создай клуб</p>
+<div>
+        <div class="clubich">
+            <input type="text" v-model="title" class="input">
+            <br>
+            <input type="text" v-model="description" class="input">
+            <br>
+            <button @click="Post()" class="sign">click</button>
+            <br>
+        </div>
+            
+        <div v-for="club in clubs" :key="club" class="clubs">
+            <div class="club">
+                <img src="./assets/Без имени.png" class="logo-id">
+                <div>
+                    <p>{{club.title}}</p>
+                    <p>{{club.description}}</p>
+                    <button @click="Delete(club.id)" class="sign"> Delete</button>
+                </div>
+            </div>
       </div>
 </div>
 </header>
 </template>
 <style>
+.clubich{
+    width:40%;
+    height:20vh;
+    margin:0 auto;
+}
+#header-info{
+    display:flex;
+    gap:2%;
+}
+#info{
+    font-size: 2em;
+}
     .logo{
-        width:10vh;
-        height:10vh;
+        width:20vh;
+        height:20vh;
         background-color:yellow;
-        border-radius:5px;
+        border-radius:40%;
     }
     .user-header{
         width:100%;
-        height:10vh;
-        background-color: grey;
+        padding-top:2%;
+        padding-left: 10%;
         display: flex;
         justify-content: space-around;
+        align-items: center;
+    }
+    #nick{
+        color:rgb(200, 203, 206);
     }
     .user-text{
         width:100%;
         color: aliceblue;
         font-size: 1em;
-        display: flex;
-        justify-content: space-around;
         align-items: center;
+        margin-left: 5%;
     }
 </style>
 <script setup> 
@@ -63,6 +85,9 @@ let description = ref('')
 let result = ref('');
 let userData = ref('');
 
+function goToClubs(){
+    router.push('/clubs');
+}
 async function getClubs()
 {
    await axios.get('https://localhost:7210/clubs')

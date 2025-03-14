@@ -1,12 +1,19 @@
 <template>
-    <div class="cont-login">
-            <p @click="Goto()">Login</p>
+<div class="container">
+    <div class="cont-login">   
+            <p @click="Goto()">go to Login</p>
+            <br>
 			<input type="text" v-model="Acc.firstName" class="input" placeholder="firstName">
+            <br>
 			<input type="text" class="input" placeholder="lastName" v-model="Acc.lastName">
+            <br>
             <input type="text" class="input" placeholder="nickName" v-model="Acc.nickName">
+            <br>
             <input type="text" v-model="Acc.password" class="input" placeholder="password">
-			<button @click="Registration()" class="sign">click</button>
+            <br>
+			<button @click="Registration()" class="sign">register</button>
     </div>
+</div>
 </template>
 
 <script setup>
@@ -31,7 +38,7 @@ password:Acc.value.password
 
 }).then(function(responce){
     if(responce){
-        router.push('/clubs');
+        router.push('/user');
         localStorage.clear();
         localStorage.setItem('accessToken',responce.data.accessToken);
         localStorage.setItem('refreshToken',responce.data.refreshToken);

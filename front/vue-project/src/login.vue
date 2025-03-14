@@ -1,10 +1,12 @@
 <template>
-    <div class="cont-login">
-			<p @click="GoTo()">Registration</p>
+<div class="container">
+	<div class="cont-login">
+			<p @click="GoTo()">go to Registration</p>
 			<input type="text" v-model="Account.nickName" class="input">
 			<input type="text" v-model="Account.password" class="input">
 			<button @click="Login()" class="sign">click</button>
     </div>
+</div>
 </template>
 
 <script setup>

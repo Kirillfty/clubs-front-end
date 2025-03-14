@@ -10,7 +10,7 @@ p{
 }
 @font-face {
     font-family: Mont;
-    src: url("../assets/Montserrat-Italic-VariableFont_wght.ttf");
+    src: url("../assets/Play-Bold.ttf");
 }
 body{
     background-color: rgb(10, 10, 10);
@@ -50,9 +50,14 @@ body{
     align-items: center;
     
 }
+.container{
+  width:100%;
+  display:flex;
+  justify-content: center;
+}
 .cont-login{
-    width:60%;
-    height:25vh;
+    width:40%;
+    height:35vh;
     margin-top: 6%;
     display: flex;
     justify-content: space-between;
