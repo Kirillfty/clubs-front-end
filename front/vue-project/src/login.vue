@@ -2,8 +2,11 @@
 <div class="container">
 	<div class="cont-login">
 			<p @click="GoTo()">go to Registration</p>
-			<input type="text" v-model="Account.nickName" class="input">
-			<input type="text" v-model="Account.password" class="input">
+			<br>
+			<input type="text" v-model="Account.nickName" class="input" placeholder="nickName">
+			<br>
+			<input type="text" v-model="Account.password" class="input" placeholder="password">
+			<br>
 			<button @click="Login()" class="sign">click</button>
     </div>
 </div>

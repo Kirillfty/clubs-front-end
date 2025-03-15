@@ -1,6 +1,5 @@
 <template>
     <div>
-      <button @click="fetchData()">ewwer</button>
       <div v-for="club in clubs" :key="club" class="clubs">
         <div class="club">
           <img src="./assets/Без имени.png" class="logo-id">

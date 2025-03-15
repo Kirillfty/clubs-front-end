@@ -48,8 +48,8 @@ import { RouterView } from 'vue-router';
          <router-link to="/user" id="link">User</router-link>
       </div>
       <div class="icons">
-         <img src="./assets/exit.png" alt="" class="icon1">
-         <router-link to="/clubs" id="link">Exit</router-link>
+         <img src="./assets/search.png" alt="" class="icon">
+         <router-link to="/search" id="link">search</router-link>
       </div>
    </aside>
  </div>
