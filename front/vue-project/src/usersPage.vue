@@ -143,17 +143,13 @@ async function checkAuthorize() {
       })
       .then(function (res) {
         console.log(res.status);
-        switch (res.status) {
-          case 200:
-            result.value = res.data;
-            console.log(result);
-            break;
-          case 401:
-            alert("вы не авторизованы войдите или создайте аккаунт");
-            router.push("/");
-            break;
+        result.value = res.data;
+        console.log(result);
+      }).catch(function(err){
+        if(err.responce == 401){
+          router.push('/');
         }
-      });
+      })
   } else {
     router.push("/");
   }
