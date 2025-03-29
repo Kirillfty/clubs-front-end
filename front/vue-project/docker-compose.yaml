@@ -1,0 +1,21 @@
+version: '3'
+services:
+  vite-app:
+    build: .
+    ports:
+      - "3000:80"
+  bookstore.api:
+    container_name: bookstore.api
+    image: ${DOCKER_REGISTRY-}bookstoreapi
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ASPNETCORE_HTTP_PORTS=5000
+      - ASPNETCORE_HTTPS_PORTS=5001
+    depends_on:
+      - bookstore.database
+    build:
+      context: .
+      dockerfile: web project/club-back-end/ClubBack/DockerFile
+    ports:
+      - "5000:5000"
+      - "5001:5001"
